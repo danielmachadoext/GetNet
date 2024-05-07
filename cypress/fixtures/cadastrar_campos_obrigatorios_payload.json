@@ -1,0 +1,10 @@
+{
+    "name": "Dispositivo do Finotti",
+    "data": {
+      "year": "finotti",
+      "price": 999,
+      "CPU model": "Intel Core i9",
+      
+      "cor": "amarelo"
+    }
+  }

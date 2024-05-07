@@ -1,0 +1,11 @@
+
+{
+  "name": "Dispositivo do Finotti",
+  "data": {
+    "year": "finotti",
+    "price": 999,
+    "CPU model": "Intel Core i9",
+    "Hard disk size": "1 TB",
+    "cor": "amarelo"
+  }
+}
