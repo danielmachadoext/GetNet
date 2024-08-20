@@ -1,5 +1,62 @@
 /// <reference types="cypress"/>
 
+import AuthPage from '../pageObjects/AuthPage';
+import DevicePage from '../pageObjects/DevicePage';
+const payload_cadastro_dispositivo = require('../fixtures/cadastrar-dispositivo-payload.json');
+
+describe("Cadastrar dispositivos", () => {
+    const authPage = new AuthPage();
+    const devicePage = new DevicePage();
+    let token;
+
+    before('Login', () => {
+        authPage.login('pl19j@exemple.com', '123456').then((response) => {
+            token = response.body.token;
+        });
+    });
+
+    it('Cadastrar dispositivo', () => {
+        devicePage.createDevice(payload_cadastro_dispositivo, token).then((response) => {
+            // Status Code
+            expect(response.status).to.equal(200);
+
+            // Contrato
+            expect(response.body).to.have.property('name', payload_cadastro_dispositivo.name);
+            expect(response.body.data).to.have.property('year', payload_cadastro_dispositivo.data.year);
+            expect(response.body.data).to.have.property('price', payload_cadastro_dispositivo.data.price);
+            expect(response.body.data).to.have.property('CPU model', payload_cadastro_dispositivo.data['CPU model']);
+            expect(response.body.data).to.have.property('Hard disk size', payload_cadastro_dispositivo.data['Hard disk size']);
+            expect(response.body.data).to.have.property('cor', payload_cadastro_dispositivo.data.cor);
+
+            // Campo Obrigatório
+            expect(response.body.name).to.not.be.empty;
+            expect(response.body.data.year).to.not.be.empty;
+            expect(response.body.data.price).to.not.be.empty;
+            expect(response.body.data['CPU model']).to.not.be.empty;
+            expect(response.body.data['Hard disk size']).to.not.be.empty;
+            expect(response.body.data.cor).to.not.be.empty;
+        });
+    });
+
+    it('Cadastrar dispositivo campos obrigatórios', () => {
+        devicePage.createDeviceWithoutPayload().should(({ status, statusText }) => {
+            expect(status).to.equal(400);
+            expect(statusText).to.equal('Bad Request');
+        });
+    });
+});
+
+
+
+
+
+
+
+
+
+/*
+/// <reference types="cypress"/>
+
 const { data } = require('ospath')
 const payload_cadastro_dispositivo = require('../fixtures/cadastrar-dispositivo-payload.json')
 const payload_cadastrar_campos_obrigatorios = require('../fixtures/cadastrar_campos_obrigatorios_payload.json')
@@ -76,3 +133,4 @@ describe("Cadastrar dispositivos", () =>{
 
     })
 })
+*/
