@@ -1,8 +1,8 @@
 /// <reference types="cypress"/>
 
-import AuthPage from '../pageObjects/AuthPage';
-import DevicePage from '../pageObjects/DevicePage';
-const payload_cadastro_dispositivo = require('../fixtures/cadastrar-dispositivo-payload.json');
+import AuthPage from 'cypress/support/pageObjects/AuthPage';
+import DevicePage from 'cypress/support/pageObjects//DevicePage';
+const payload_cadastro_dispositivo = require('cypress/fixtures/cadastrar-dispositivo-payload.json');
 
 describe("Cadastrar dispositivos", () => {
     const authPage = new AuthPage();
