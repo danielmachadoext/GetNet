@@ -1,5 +1,5 @@
-import HomePage from 'cypress/support/pageObjects/HomePage';
-import CentralDeAjudaPage from 'cypress/support/pageObjects/CentralDeAjudaPage';
+import HomePage from  './support/pageObjects/HomePage';
+import CentralDeAjudaPage from './support/pageObjects/CentralDeAjudaPage';
 
 describe('Teste Automatizado Cypress', () => {
     const homePage = new HomePage();
