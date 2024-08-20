@@ -1,10 +1,10 @@
 class HomePage {
     visit() {
-        cy.visit('https://site.getnet.com.br/');
+        cy.visit('https://getnet.com.br/');
     }
 
     verifyUrl() {
-        cy.url().should('eq', 'https://site.getnet.com.br/');
+        cy.url().should('eq', 'https://getnet.com.br/');
     }
 
     clickMenuBurguer() {
