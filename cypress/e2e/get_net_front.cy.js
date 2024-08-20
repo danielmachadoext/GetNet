@@ -1,4 +1,4 @@
-import HomePage from 'cypress/support/pageObjects/HomePage';
+import HomePage from 'cypress\support\pageObjects\HomePage.js';
 import CentralDeAjudaPage from 'cypress/support/pageObjects/CentralDeAjudaPage';
 
 describe('Teste Automatizado Cypress', () => {
